@@ -257,13 +257,13 @@ void CMyImageEditorDlg::OnBnClickedButtonBlending()
 			for (h = 0; h < nChannel; h++) // 채널 단위 이동
 			{
 				// 두 입력 영상의 평균 값을 결과 영상에 저장
-				if (imageIn2.GetAt(c, r, h) == 0xff)
-				{
-					imageOut.GetAt(c, r, h) = imageIn1.GetAt(c, r, h);
-				}
-				else
-					imageOut.GetAt(c, r, h) = imageIn2.GetAt(c, r, h);
-
+				//if (imageIn2.GetAt(c, r, h) == 0xff)
+				//{
+				//	imageOut.GetAt(c, r, h) = imageIn1.GetAt(c, r, h);
+				//}
+				//else
+				//	imageOut.GetAt(c, r, h) = imageIn2.GetAt(c, r, h);
+				imageOut.GetAt(c, r, h) = (imageIn2.GetAt(c, r, h) == 0xff) ? imageIn1.GetAt(c, r, h) : imageIn2.GetAt(c, r, h);
 			}
 		}
 	}
